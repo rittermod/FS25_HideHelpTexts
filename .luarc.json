@@ -1,0 +1,9 @@
+{
+  "workspace.useGitIgnore": true,
+  "workspace.ignoreDir": [
+    "build",
+    "dist",
+    "_templates"
+  ],
+  "runtime.version": "Lua 5.1"
+}

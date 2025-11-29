@@ -1,0 +1,35 @@
+# FS25 Mod Build Helper - Exclusion patterns
+# Patterns follow .gitignore syntax
+
+# Git and version control
+.git*
+
+# Documentation (not needed in release)
+*.md
+!README.md
+
+# Node.js files
+package.json
+package-lock.json
+
+# Configuration files
+.*rc*
+.editorconfig
+.prettier*
+
+# Development environment
+.vscode/
+.claude/
+.serena/
+
+# Build artifacts
+build/
+dist/
+.modbuildignore
+
+# Templates directory
+_templates/
+
+# Other
+screenshots/
+claudedocs/

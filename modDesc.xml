@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<modDesc descVersion="100">
+    <author>Ritter</author>
+    <version>0.1.0.0</version>
+    <title>
+        <en>Hide Help Texts</en>
+    </title>
+    <description>
+        <en><![CDATA[
+Hide selected help texts from HUD
+
+Changelog:
+0.1.0.0:
+- Initial alpha release
+        ]]>        </en>
+    </description>
+
+    <extraSourceFiles>
+        <sourceFile filename="scripts/main.lua"/>
+    </extraSourceFiles>
+</modDesc>
