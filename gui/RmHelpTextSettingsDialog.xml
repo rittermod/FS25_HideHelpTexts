@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUI onOpen="onOpen" onClose="onClose" onCreate="onCreate">
+    <Bitmap profile="dialogFullscreenBg" id="dialogBg"/>
+    <GuiElement profile="fs25_dialogBg" id="dialogElement" size="800px 900px">
+        <ThreePartBitmap profile="fs25_dialogBgMiddle"/>
+        <ThreePartBitmap profile="fs25_dialogBgTop"/>
+        <ThreePartBitmap profile="fs25_dialogBgBottom"/>
+        <GuiElement profile="fs25_dialogContentContainer">
+            <Text profile="dialogTitle" text="$l10n_ui_inputHelpVisibility_title" id="dialogTitleElement" position="0px -30px"/>
+
+            <!-- Empty state message (shown when list is empty) -->
+            <Text profile="fs25_dialogText" text="$l10n_ui_inputHelpVisibility_empty" id="emptyListText" position="0px -280px" size="700px 40px"/>
+
+            <!-- Help text list -->
+            <SmoothList profile="rmHelpTextList" id="helpTextList" position="50px -80px" size="670px 700px" focusInit="onOpen" focusChangeTop="nil" focusChangeBottom="nil">
+                <ListItem profile="rmHelpTextListItem" name="helpTextRowTemplate" size="655px 55px">
+                    <Text profile="rmHelpTextPrimary" position="15px -5px" size="570px 28px" name="primaryText" textLayoutMode="scrolling"/>
+                    <Text profile="rmHelpTextSecondary" position="15px -30px" size="570px 22px" name="secondaryText"/>
+                    <Text profile="rmHelpTextToggle" position="590px 0px" size="55px 55px" name="toggleState"/>
+                </ListItem>
+            </SmoothList>
+
+            <!-- Scrollbar -->
+            <ThreePartBitmap profile="fs25_listSliderBox" position="-30px -17px" size="12px 700px" with="anchorTopRight">
+                <Slider profile="fs25_listSlider" size="6px 692px" dataElementId="helpTextList" id="listSlider"/>
+            </ThreePartBitmap>
+        </GuiElement>
+
+        <!-- Buttons -->
+        <BoxLayout profile="fs25_dialogButtonBox" size="700px 60px">
+            <Button profile="buttonExtra1" text="$l10n_ui_inputHelpVisibility_showAll" onClick="onClickViewMode" id="buttonViewMode"/>
+            <Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+            <Button profile="buttonOK" text="$l10n_ui_inputHelpVisibility_toggle" onClick="onClickToggle" id="buttonToggle"/>
+            <Bitmap profile="fs25_dialogButtonBoxSeparator"/>
+            <Button profile="buttonBack" text="$l10n_ui_inputHelpVisibility_close" onClick="onClickClose"/>
+        </BoxLayout>
+    </GuiElement>
+</GUI>

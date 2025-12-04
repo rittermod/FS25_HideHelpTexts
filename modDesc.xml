@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="100">
     <author>Ritter</author>
-    <version>0.2.0.0</version>
+    <version>0.4.0.0</version>
     <title>
         <en>Hide Help Texts</en>
     </title>
     <description>
         <en><![CDATA[
 Hide selected help texts from HUD
+
+Usage:
+- Press RightShift+H to open settings dialog (configurable)
+- Toggle help texts ON/OFF in the dialog
+- Changes are saved when closing the dialog
 
 Console Commands:
 - hhtList: Shows all known help texts with visibility status
@@ -16,6 +21,16 @@ Console Commands:
 Settings saved to: modSettings/FS25_HideHelpTexts/settings.xml
 
 Changelog:
+0.4.0.0 (alpha):
+- View mode toggle: show current context or all discovered help texts
+- Display key bindings for each help text (e.g., Shift + H)
+- Improved dialog layout and text readability
+
+0.3.0.0 (alpha):
+- Added in-game settings dialog (RightShift+H)
+- Shows discovered help texts with ON/OFF toggles
+- Arrow key navigation support
+
 0.2.0.0 (alpha):
 - Added console commands (hhtList, hhtToggle)
 - Settings now persist to XML file
@@ -30,4 +45,16 @@ Changelog:
     <extraSourceFiles>
         <sourceFile filename="scripts/main.lua"/>
     </extraSourceFiles>
+
+    <l10n filenamePrefix="languages/l10n"/>
+
+    <actions>
+        <action name="RM_HIDEHELPTEXT_OPEN_GUI"/>
+    </actions>
+
+    <inputBinding>
+        <actionBinding action="RM_HIDEHELPTEXT_OPEN_GUI">
+            <binding device="KB_MOUSE_DEFAULT" input="KEY_rshift KEY_h"/>
+        </actionBinding>
+    </inputBinding>
 </modDesc>

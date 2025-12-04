@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="no" ?>
+<GUIProfiles>
+
+    <Profile name="rmHelpTextList" extends="emptyPanel" with="anchorStretchingYLeft pivotTopLeft">
+    </Profile>
+
+    <Profile name="rmHelpTextListItem" extends="baseReference" with="anchorTopStretchingX alternating">
+        <height value="55px"/>
+        <imageColor value="$preset_fs25_colorGrey"/>
+        <imageSelectedColor value="$preset_fs25_colorMainHighlight"/>
+        <alternateBackgroundColor value="$preset_fs25_colorGreyDark_50"/>
+    </Profile>
+
+    <Profile name="rmHelpTextPrimary" extends="baseReference" with="anchorTopLeft">
+        <textBold value="false"/>
+        <textSize value="18px"/>
+        <textAlignment value="left"/>
+        <textColor value="$preset_fs25_colorMainLight"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+    </Profile>
+
+    <Profile name="rmHelpTextSecondary" extends="baseReference" with="anchorTopLeft">
+        <textBold value="false"/>
+        <textSize value="13px"/>
+        <textAlignment value="left"/>
+        <textColor value="$preset_colorWhite_50"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+    </Profile>
+
+    <Profile name="rmHelpTextToggle" extends="baseReference" with="anchorStretchingYLeft">
+        <textBold value="true"/>
+        <textSize value="18px"/>
+        <textAlignment value="right"/>
+        <textColor value="$preset_fs25_colorMainHighlight"/>
+        <textSelectedColor value="$preset_fs25_colorMainDark"/>
+    </Profile>
+
+</GUIProfiles>

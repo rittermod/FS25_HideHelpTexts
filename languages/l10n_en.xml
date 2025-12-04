@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+    <texts>
+        <text name="ui_inputHelpVisibility_title" text="Input Help Visibility"/>
+        <text name="ui_inputHelpVisibility_empty" text="No help texts discovered yet. Use vehicles and tools to populate this list."/>
+        <text name="ui_inputHelpVisibility_emptyContext" text="No help texts active in current context."/>
+        <text name="ui_inputHelpVisibility_showCurrent" text="Show Current"/>
+        <text name="ui_inputHelpVisibility_showAll" text="Show All"/>
+        <text name="ui_inputHelpVisibility_toggle" text="Toggle"/>
+        <text name="ui_inputHelpVisibility_close" text="Close"/>
+        <text name="input_RM_HIDEHELPTEXT_OPEN_GUI" text="Open Help Text Settings"/>
+    </texts>
+</l10n>

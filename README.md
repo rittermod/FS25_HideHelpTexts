@@ -11,13 +11,24 @@ This is an alpha release. Core functionality works but there may be edge cases o
 ## Features
 
 - Hide selected help texts from the HUD
+- In-game settings dialog (RightShift+H) with ON/OFF toggles
+- View mode toggle: show current context or all discovered help texts
+- Displays key bindings for each help text
 - Console commands for listing and toggling help texts
 - Automatically discovers help texts as you play
-- Settings persist across sessions
+- Settings persist across savegames and sessions
 - Manual XML editing for advanced users
-- (planned) In-game GUI for managing help texts
 
 ## Usage
+
+### In-Game Settings Dialog
+
+Press **RightShift+H** to open the settings dialog (keybinding is configurable in game settings).
+
+- Toggle help texts ON/OFF by selecting them and pressing Enter or using arrow keys
+- Press **X** to switch between "Current" view (only active context) and "All" view (all discovered)
+- Primary key binding are shown for each help text (e.g., "Shift + H")
+- Changes are saved when closing the dialog
 
 ### Console Commands
 
@@ -32,9 +43,10 @@ Open the console and use these commands:
 ### Workflow
 
 1. Play the game normally - help texts are discovered automatically
-2. Open console and run `hhtList` to see all known help texts
-3. Use `hhtToggle IDENTIFIER` to hide unwanted texts
-4. Settings are saved automatically
+2. Press **RightShift+H** to open the settings dialog
+3. Toggle unwanted help texts to OFF
+4. Use **X** to switch between current context and all discovered help texts
+5. Settings are saved automatically
 
 ## Configuration
 
@@ -71,6 +83,16 @@ You can manually edit this file to set `hidden="true"` for any help text.
 3. Enable the mod in-game
 
 ## Changelog
+
+### 0.4.0.0 (alpha)
+- View mode toggle: show current context or all discovered help texts
+- Display key bindings for each help text (e.g., Shift + H)
+- Improved dialog layout and text readability
+
+### 0.3.0.0 (alpha)
+- Added in-game settings dialog (RightShift+H)
+- Shows discovered help texts with ON/OFF toggles
+- Arrow key navigation support
 
 ### 0.2.0.0 (alpha)
 - Added console commands (`hhtList`, `hhtToggle`)
