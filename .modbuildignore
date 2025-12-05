@@ -6,7 +6,6 @@
 
 # Documentation (not needed in release)
 *.md
-!README.md
 
 # Node.js files
 package.json
