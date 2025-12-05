@@ -18,7 +18,7 @@ RmHideHelpTexts.settingsFile = nil
 
 -- Initialize logging
 RmLogging.setLogPrefix("[RmHideHelpTexts]")
-RmLogging.setLogLevel(RmLogging.LOG_LEVEL.DEBUG)
+-- RmLogging.setLogLevel(RmLogging.LOG_LEVEL.DEBUG)
 
 --- Called when map is loaded
 function RmHideHelpTexts:loadMap(filename)

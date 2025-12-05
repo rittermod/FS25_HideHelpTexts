@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="100">
     <author>Ritter</author>
-    <version>0.4.0.0</version>
+    <version>0.5.0.0</version>
     <title>
         <en>Hide Help Texts</en>
     </title>
     <description>
         <en><![CDATA[
-Hide selected help texts from HUD
+Hide the help texts you don't need so the ones you actually want are more visible.
+
+Supports multiplayer.
 
 Usage:
 - Press RightShift+H to open settings dialog (configurable)
@@ -21,6 +23,10 @@ Console Commands:
 Settings saved to: modSettings/FS25_HideHelpTexts/settings.xml
 
 Changelog:
+0.5.0.0 (beta):
+- First beta release
+- Multiplayer support confirmed
+
 0.4.0.0 (alpha):
 - View mode toggle: show current context or all discovered help texts
 - Display key bindings for each help text (e.g., Shift + H)
@@ -41,6 +47,9 @@ Changelog:
 - Initial release
         ]]></en>
     </description>
+
+    <multiplayer supported="true"/>
+    <iconFilename>icon_hideHelpTexts.dds</iconFilename>
 
     <extraSourceFiles>
         <sourceFile filename="scripts/main.lua"/>

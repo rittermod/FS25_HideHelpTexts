@@ -1,23 +1,19 @@
 # Hide Help Texts
 
-When the game and mods add help texts to the HUD it gets crowded. Do you really need to be reminded that F turns on the flashlight or that there is a keybinding to show Courseplay's debug channels?
+When the game and mods all add their own help texts to the HUD it quickly gets crowded. Do you really need to be reminded that F turns on the flashlight or that there is a keybinding to show Courseplay's debug channels? This mod lets you hide the help texts you don't need so the ones you actually want are more visible.
 
-This mod allows you to hide selected help texts from the HUD so the ones you actually need are more visible.
+## Beta Release
 
-## Alpha Release
-
-This is an alpha release. Core functionality works but there may be edge cases or issues. Feedback welcome.
+This is a beta release. Core functionality is stable and tested. Multiplayer compatible. Feedback welcome.
 
 ## Features
 
-- Hide selected help texts from the HUD
-- In-game settings dialog (RightShift+H) with ON/OFF toggles
-- View mode toggle: show current context or all discovered help texts
-- Displays key bindings for each help text
-- Console commands for listing and toggling help texts
-- Automatically discovers help texts as you play
-- Settings persist across savegames and sessions
-- Manual XML editing for advanced users
+- **In-Game Settings Dialog:** Press RightShift+H to open settings (keybinding configurable)
+- **Toggle Visibility:** ON/OFF toggles for each discovered help text
+- **View Modes:** Switch between current context and all discovered help texts
+- **Console Commands:** `hhtList` and `hhtToggle` for command-line control
+- **Auto-Discovery:** Help texts are discovered automatically as you play
+- **Persistent Settings:** Configuration saved to XML file across sessions
 
 ## Usage
 
@@ -27,7 +23,6 @@ Press **RightShift+H** to open the settings dialog (keybinding is configurable i
 
 - Toggle help texts ON/OFF by selecting them and pressing Enter or using arrow keys
 - Press **X** to switch between "Current" view (only active context) and "All" view (all discovered)
-- Primary key binding are shown for each help text (e.g., "Shift + H")
 - Changes are saved when closing the dialog
 
 ### Console Commands
@@ -83,6 +78,10 @@ You can manually edit this file to set `hidden="true"` for any help text.
 3. Enable the mod in-game
 
 ## Changelog
+
+### 0.5.0.0 (beta)
+- First beta release
+- Multiplayer support confirmed
 
 ### 0.4.0.0 (alpha)
 - View mode toggle: show current context or all discovered help texts
