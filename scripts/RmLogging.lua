@@ -1,5 +1,4 @@
 RmLogging = {}
-local RmLogging_mt = Class(RmLogging)
 
 -- Module constants
 RmLogging.LOG_PREFIX = "[RmLogging]"

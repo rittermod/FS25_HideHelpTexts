@@ -326,7 +326,7 @@ end
 -- Override InputDisplayManager.makeHelpElement to hide specified help texts
 InputDisplayManager.makeHelpElement = Utils.overwrittenFunction(
     InputDisplayManager.makeHelpElement,
-    function(self, original, action1, action2, ...)
+    function(self, superFunc, action1, action2, ...)
         -- Track/update action1 first (ensure display names are always captured)
         local entry1 = RmHideHelpTexts.knownHelpTexts[action1.name]
         local posName1 = sanitizeDisplayName(action1.displayNamePositive, action1.name)
@@ -384,7 +384,13 @@ InputDisplayManager.makeHelpElement = Utils.overwrittenFunction(
             end
         end
 
-        return original(self, action1, action2, ...)
+        -- Ensure superFunc is available before calling it
+        if superFunc ~= nil then
+            return superFunc(self, action1, action2, ...)
+        else
+            RmLogging.logTrace("superFunc nil in InputDisplayManager.makeHelpElement, returning NO_HELP_ELEMENT")
+            return InputDisplayManager.NO_HELP_ELEMENT
+        end
     end
 )
 

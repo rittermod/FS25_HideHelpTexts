@@ -20,7 +20,7 @@ function RmHelpTextSettingsDialog.new(target, custom_mt)
     RmLogging.logTrace("RmHelpTextSettingsDialog:new()")
     local self = MessageDialog.new(target, custom_mt or RmHelpTextSettingsDialog_mt)
     self.helpTextEntries = {}
-    self.showCurrentOnly = true  -- Default to showing current context only
+    self.showCurrentOnly = true -- Default to showing current context only
     return self
 end
 
@@ -287,7 +287,7 @@ function RmHelpTextSettingsDialog:inputEvent(action, value, eventUsed)
                 if action == InputAction.MENU_ACCEPT then
                     self:toggleHelpText(entry.identifier)
                     eventUsed = true
-                -- Left/right axis for directional toggle
+                    -- Left/right axis for directional toggle
                 elseif action == InputAction.MENU_AXIS_LEFT_RIGHT then
                     if value < 0 then
                         -- Left = turn ON (show)
