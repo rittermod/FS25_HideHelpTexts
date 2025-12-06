@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="100">
     <author>Ritter</author>
-    <version>0.5.0.0</version>
+    <version>0.5.1.0</version>
     <title>
         <en>Hide Help Texts</en>
     </title>
@@ -23,6 +23,9 @@ Console Commands:
 Settings saved to: modSettings/FS25_HideHelpTexts/settings.xml
 
 Changelog:
+0.5.1.0 (beta):
+- Fixed spurious error log when registering keybind while in vehicle
+
 0.5.0.0 (beta):
 - First beta release
 - Multiplayer support confirmed

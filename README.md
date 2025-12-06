@@ -79,6 +79,9 @@ You can manually edit this file to set `hidden="true"` for any help text.
 
 ## Changelog
 
+### 0.5.1.0 (beta)
+- Fixed spurious error log when registering keybind while in vehicle
+
 ### 0.5.0.0 (beta)
 - First beta release
 - Multiplayer support confirmed
