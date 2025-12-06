@@ -47,7 +47,9 @@ end
 
 --- Registers player action events for GUI keybind
 --- Called via PlayerInputComponent.registerGlobalPlayerActionEvents hook
-function RmHideHelpTexts.addPlayerActionEvents()
+---@param self table PlayerInputComponent instance
+---@param controlling string Control context (e.g., "VEHICLE" when in a vehicle)
+function RmHideHelpTexts.addPlayerActionEvents(self, controlling)
     RmLogging.logDebug("Registering player action events")
     local triggerUp, triggerDown, triggerAlways = false, true, false
     local startActive, callbackState, disableConflictingBindings = true, nil, true
@@ -60,7 +62,9 @@ function RmHideHelpTexts.addPlayerActionEvents()
         startActive, callbackState, disableConflictingBindings
     )
 
-    if not success then
+    if not success and controlling ~= "VEHICLE" then
+        -- Only log error if not in vehicle context
+        -- When controlling == "VEHICLE", success is false even if registration succeeded
         RmLogging.logError("Failed to register action event for RM_HIDEHELPTEXT_OPEN_GUI")
         return
     end
