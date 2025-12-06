@@ -13,7 +13,7 @@ This is a beta release. Core functionality is stable and tested. Multiplayer com
 - **View Modes:** Switch between current context and all discovered help texts
 - **Console Commands:** `hhtList` and `hhtToggle` for command-line control
 - **Auto-Discovery:** Help texts are discovered automatically as you play
-- **Persistent Settings:** Configuration saved to XML file across sessions
+- **Persistent Settings:** Configuration saved to user settings, working across savefiles
 
 ## Usage
 
