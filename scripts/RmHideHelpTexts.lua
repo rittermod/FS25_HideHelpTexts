@@ -166,7 +166,7 @@ end
 
 --- Opens the settings dialog (called by input action)
 function RmHideHelpTexts.showSettingsDialog()
-    -- Capture current context BEFORE opening dialog (context may change when dialog opens)
+    -- Capture current context BEFORE opening dialog
     RmHideHelpTexts.capturedContextIdentifiers = RmHideHelpTexts.getCurrentContextIdentifiers()
 
     local count = 0
@@ -247,7 +247,6 @@ function RmHideHelpTexts:loadSettings()
         local identifier = getXMLString(xmlFile, baseKey .. "#identifier")
         if identifier then
             local hidden = getXMLBool(xmlFile, baseKey .. "#hidden") or false
-            -- Read new format attributes
             local displayNamePositive = getXMLString(xmlFile, baseKey .. "#displayNamePositive")
             local displayNameNegative = getXMLString(xmlFile, baseKey .. "#displayNameNegative")
 
@@ -308,7 +307,7 @@ function RmHideHelpTexts.saveToFile()
 end
 
 --- Sanitizes a display name by returning empty string if it equals the identifier
---- (Some actions incorrectly have identifier as display name)
+--- (Some actions have identifier as display name)
 ---@param displayName string|nil The display name to sanitize
 ---@param identifier string The action identifier to check against
 ---@return string The sanitized display name

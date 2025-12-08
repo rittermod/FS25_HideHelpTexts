@@ -79,6 +79,9 @@ You can manually edit this file to set `hidden="true"` for any help text.
 
 ## Changelog
 
+### 0.5.1.1 (beta)
+- Code maintenance
+
 ### 0.5.1.0 (beta)
 - Fixed spurious error log when registering keybind while in vehicle
 

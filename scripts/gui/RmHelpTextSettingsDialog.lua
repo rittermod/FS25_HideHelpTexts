@@ -1,7 +1,15 @@
+---@diagnostic disable: undefined-field
 -- RmHelpTextSettingsDialog.lua
 -- GUI dialog for managing help text visibility
 -- Author: Ritter
 
+---@class RmHelpTextSettingsDialog : MessageDialog
+---@field helpTextEntries table[] List of help text entries for display
+---@field showCurrentOnly boolean Whether to filter to current context only
+---@field helpTextList table GUI list element
+---@field listSlider table GUI slider element
+---@field emptyListText table GUI text element for empty state
+---@field buttonViewMode table GUI button for view mode toggle
 RmHelpTextSettingsDialog = {}
 local RmHelpTextSettingsDialog_mt = Class(RmHelpTextSettingsDialog, MessageDialog)
 
@@ -18,6 +26,8 @@ RmHelpTextSettingsDialog.CONTROLS = {
 ---@return RmHelpTextSettingsDialog the new dialog instance
 function RmHelpTextSettingsDialog.new(target, custom_mt)
     RmLogging.logTrace("RmHelpTextSettingsDialog:new()")
+    ---@type RmHelpTextSettingsDialog
+    ---@diagnostic disable-next-line: assign-type-mismatch
     local self = MessageDialog.new(target, custom_mt or RmHelpTextSettingsDialog_mt)
     self.helpTextEntries = {}
     self.showCurrentOnly = true -- Default to showing current context only
