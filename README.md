@@ -2,10 +2,6 @@
 
 When the game and mods all add their own help texts to the HUD it quickly gets crowded. Do you really need to be reminded that F turns on the flashlight or that there is a keybinding to show Courseplay's debug channels? This mod lets you hide the help texts you don't need so the ones you actually want are more visible.
 
-## Beta Release
-
-This is a beta release. Core functionality is stable and tested. Multiplayer compatible. Feedback welcome.
-
 ## Features
 
 - **In-Game Settings Dialog:** Press RightShift+H to open settings (keybinding configurable)
@@ -65,6 +61,12 @@ You can manually edit this file to set `hidden="true"` for any help text.
 
 ## Installation
 
+### From ModHub
+1. Open Farming Simulator 2025
+2. Go to the ModHub section
+3. Search for "[Hide Help Texts](https://www.farming-simulator.com/mod.php?mod_id=344217&title=fs2025)"
+4. Download and enable the mod
+
 ### From GitHub Releases
 1. Download the latest release from [Releases](https://github.com/rittermod/FS25_HideHelpTexts/releases)
 2. Place the `.zip` file in your mods folder:
@@ -78,6 +80,10 @@ You can manually edit this file to set `hidden="true"` for any help text.
 3. Enable the mod in-game
 
 ## Changelog
+
+### 1.0.0.0:
+- Official release version on ModHub
+- Added German localization
 
 ### 0.5.1.1 (beta)
 - Code maintenance
