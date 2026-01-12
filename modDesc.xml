@@ -1,57 +1,52 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
 <modDesc descVersion="105">
     <author>Ritter</author>
-    <version>0.5.1.1</version>
+    <version>1.0.0.0</version>
     <title>
         <en>Hide Help Texts</en>
+        <de>Hilfetexte Ausblenden</de>
     </title>
     <description>
         <en><![CDATA[
-Hide the help texts you don't need so the ones you actually want are more visible.
+Declutter your HUD by hiding unneeded help texts.
+
+When the game and mods all add their own help texts to the HUD it quickly gets crowded. Do you really need to be reminded that F turns on the flashlight or that there is a keybinding to show Courseplay's debug channels?
+
+This mod lets you hide the help texts you don't need so the ones you actually want are more visible.
+
 
 Supports multiplayer.
 
 Usage:
+- Enable the mod and play the game as usual
 - Press RightShift+H to open settings dialog (configurable)
 - Toggle help texts ON/OFF in the dialog
 - Changes are saved when closing the dialog
 
-Console Commands:
-- hhtList: Shows all known help texts with visibility status
-- hhtToggle <id>: Toggle visibility of a help text
+Settings are saved to user settings and work across savegames.
 
-Settings saved to: modSettings/FS25_HideHelpTexts/settings.xml
+GitHub: https://github.com/rittermod/FS25_HideHelpTexts
+]]>        </en>
+        <de><![CDATA[
+Räume dein HUD auf, indem du nicht benötigte Hilfetexte ausblendest.
 
-Changelog:
-0.5.1.1 (beta):
-- Code maintenance
+Wenn das Spiel und Mods alle ihre eigenen Hilfetexte zum HUD hinzufügen, wird es schnell unübersichtlich. Musst du wirklich daran erinnert werden, dass F die Taschenlampe einschaltet oder dass es eine Tastenbelegung für die Debug-Kanäle von Courseplay gibt?
 
-0.5.1.0 (beta):
-- Fixed spurious error log when registering keybind while in vehicle
+Mit diesem Mod kannst du die Hilfetexte ausblenden, die du nicht brauchst, damit die wichtigen besser sichtbar sind.
 
-0.5.0.0 (beta):
-- First beta release
-- Multiplayer support confirmed
 
-0.4.0.0 (alpha):
-- View mode toggle: show current context or all discovered help texts
-- Display key bindings for each help text (e.g., Shift + H)
-- Improved dialog layout and text readability
+Unterstützt Mehrspieler.
 
-0.3.0.0 (alpha):
-- Added in-game settings dialog (RightShift+H)
-- Shows discovered help texts with ON/OFF toggles
-- Arrow key navigation support
+Benutzung:
+- Aktiviere den Mod und spiele wie gewohnt
+- Drücke Rechte Shift Taste + H um den Einstellungsdialog zu öffnen (konfigurierbar)
+- Schalte Hilfetexte im Dialog EIN/AUS
+- Beim Schließen des Dialogs werden die Einstellungen gespeichert
 
-0.2.0.0 (alpha):
-- Added console commands (hhtList, hhtToggle)
-- Settings now persist to XML file
-- Automatically discovers help texts during play
-- User can manually edit settings.xml
+Einstellungen werden in den Benutzereinstellungen gespeichert und funktionieren spielstandübergreifend.
 
-0.1.0.0 (alpha):
-- Initial release
-        ]]>        </en>
+GitHub: https://github.com/rittermod/FS25_HideHelpTexts
+]]>        </de>
     </description>
 
     <multiplayer supported="true"/>

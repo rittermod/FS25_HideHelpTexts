@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<l10n>
+    <texts>
+        <text name="ui_inputHelpVisibility_title" text="Eingabehilfe-Sichtbarkeit"/>
+        <text name="ui_inputHelpVisibility_empty" text="Noch keine Hilfetexte entdeckt. Benutze Fahrzeuge und Geräte, um diese Liste zu füllen."/>
+        <text name="ui_inputHelpVisibility_emptyContext" text="Keine Hilfetexte im aktuellen Kontext aktiv."/>
+        <text name="ui_inputHelpVisibility_showCurrent" text="Aktuelle anzeigen"/>
+        <text name="ui_inputHelpVisibility_showAll" text="Alle anzeigen"/>
+        <text name="ui_inputHelpVisibility_toggle" text="Umschalten"/>
+        <text name="ui_inputHelpVisibility_close" text="Schließen"/>
+        <text name="ui_inputHelpVisibility_stateOn" text="An"/>
+        <text name="ui_inputHelpVisibility_stateOff" text="Aus"/>
+        <text name="input_RM_HIDEHELPTEXT_OPEN_GUI" text="Hilfetexte-Einstellungen öffnen"/>
+    </texts>
+</l10n>

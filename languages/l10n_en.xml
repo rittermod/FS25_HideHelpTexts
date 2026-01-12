@@ -8,6 +8,8 @@
         <text name="ui_inputHelpVisibility_showAll" text="Show All"/>
         <text name="ui_inputHelpVisibility_toggle" text="Toggle"/>
         <text name="ui_inputHelpVisibility_close" text="Close"/>
+        <text name="ui_inputHelpVisibility_stateOn" text="On"/>
+        <text name="ui_inputHelpVisibility_stateOff" text="Off"/>
         <text name="input_RM_HIDEHELPTEXT_OPEN_GUI" text="Open Help Text Settings"/>
     </texts>
 </l10n>

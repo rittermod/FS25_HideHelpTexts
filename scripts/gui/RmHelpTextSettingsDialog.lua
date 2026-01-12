@@ -208,7 +208,7 @@ function RmHelpTextSettingsDialog:populateCellForItemInSection(list, section, in
             cell:getAttribute("secondaryText"):setText(secondaryText)
 
             -- Toggle state (ON = visible, OFF = hidden)
-            local toggleText = entry.hidden and "OFF" or "ON"
+            local toggleText = entry.hidden and g_i18n:getText("ui_inputHelpVisibility_stateOff") or g_i18n:getText("ui_inputHelpVisibility_stateOn")
             cell:getAttribute("toggleState"):setText(toggleText)
         end
     end
