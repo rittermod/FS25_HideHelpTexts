@@ -207,9 +207,20 @@ function RmHelpTextSettingsDialog:populateCellForItemInSection(list, section, in
             end
             cell:getAttribute("secondaryText"):setText(secondaryText)
 
-            -- Toggle state (ON = visible, OFF = hidden)
-            local toggleText = entry.hidden and g_i18n:getText("ui_inputHelpVisibility_stateOff") or g_i18n:getText("ui_inputHelpVisibility_stateOn")
-            cell:getAttribute("toggleState"):setText(toggleText)
+            -- Toggle state (ON = visible, OFF = hidden) with dynamic colors
+            local toggleElement = cell:getAttribute("toggleState")
+            if entry.hidden then
+                -- Set text and color to Red if the help text is hidden
+                toggleElement:setText(g_i18n:getText("ui_inputHelpVisibility_stateOff"))
+                toggleElement:setTextColor(1, 0, 0, 1) -- Red (RGBA)
+            else
+                -- Set text and color to Green if the help text is visible
+                toggleElement:setText(g_i18n:getText("ui_inputHelpVisibility_stateOn"))
+                toggleElement:setTextColor(0, 1, 0, 1) -- Green (RGBA)
+            end
+
+            -- Increase the font size for better visibility (default is usually around 0.02)
+            toggleElement:setTextSize(0.025)
         end
     end
 end
