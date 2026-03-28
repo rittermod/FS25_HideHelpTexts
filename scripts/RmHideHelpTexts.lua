@@ -17,12 +17,12 @@ RmHideHelpTexts.capturedContextIdentifiers = {}
 RmHideHelpTexts.settingsFile = nil
 
 -- Initialize logging
-RmLogging.setLogPrefix("[RmHideHelpTexts]")
--- RmLogging.setLogLevel(RmLogging.LOG_LEVEL.DEBUG)
+local Log = RmLogging.getLogger("HideHelpTexts")
+-- Log:setLevel("DEBUG")
 
 --- Called when map is loaded
 function RmHideHelpTexts:loadMap(filename)
-    RmLogging.logInfo("Mod loaded successfully (v%s)", g_modManager:getModByName(self.modName).version)
+    Log:info("Mod loaded successfully (v%s)", g_modManager:getModByName(self.modName).version)
 
     -- Register console commands
     addConsoleCommand("hhtList", "Lists all known help texts with visibility status", "consoleCommandList", self)
@@ -38,7 +38,7 @@ end
 
 --- Called when map is about to unload
 function RmHideHelpTexts:deleteMap()
-    RmLogging.logDebug("Mod unloading")
+    Log:debug("Mod unloading")
 
     -- Remove console commands
     removeConsoleCommand("hhtList")
@@ -50,7 +50,7 @@ end
 ---@param self table PlayerInputComponent instance
 ---@param controlling string Control context (e.g., "VEHICLE" when in a vehicle)
 function RmHideHelpTexts.addPlayerActionEvents(self, controlling)
-    RmLogging.logDebug("Registering player action events")
+    Log:debug("Registering player action events")
     local triggerUp, triggerDown, triggerAlways = false, true, false
     local startActive, callbackState, disableConflictingBindings = true, nil, true
 
@@ -65,7 +65,7 @@ function RmHideHelpTexts.addPlayerActionEvents(self, controlling)
     if not success and controlling ~= "VEHICLE" then
         -- Only log error if not in vehicle context
         -- When controlling == "VEHICLE", success is false even if registration succeeded
-        RmLogging.logError("Failed to register action event for RM_HIDEHELPTEXT_OPEN_GUI")
+        Log:error("Failed to register action event for RM_HIDEHELPTEXT_OPEN_GUI")
         return
     end
 
@@ -133,7 +133,7 @@ function RmHideHelpTexts.getCurrentContextIdentifiers()
     local identifiers = {}
 
     if not g_inputBinding then
-        RmLogging.logWarning("g_inputBinding not available")
+        Log:warning("g_inputBinding not available")
         return identifiers
     end
 
@@ -173,7 +173,7 @@ function RmHideHelpTexts.showSettingsDialog()
     for _ in pairs(RmHideHelpTexts.capturedContextIdentifiers) do
         count = count + 1
     end
-    RmLogging.logDebug("Captured %d context identifiers before opening dialog", count)
+    Log:debug("Captured %d context identifiers before opening dialog", count)
 
     RmHelpTextSettingsDialog.show()
 end
@@ -214,7 +214,7 @@ function RmHideHelpTexts:consoleCommandToggle(identifier)
     entry.hidden = not entry.hidden
     local status = entry.hidden and "HIDDEN" or "VISIBLE"
 
-    RmLogging.logInfo("Help text '%s' is now %s", identifier, status)
+    Log:info("Help text '%s' is now %s", identifier, status)
     RmHideHelpTexts.saveToFile()
 
     return string.format("Help text '%s' is now %s", identifier, status)
@@ -229,13 +229,13 @@ function RmHideHelpTexts:loadSettings()
     self.settingsFile = settingsDir .. "settings.xml"
 
     if not fileExists(self.settingsFile) then
-        RmLogging.logInfo("No settings file found, using defaults")
+        Log:info("No settings file found, using defaults")
         return
     end
 
     local xmlFile = loadXMLFile("hideHelpTexts", self.settingsFile)
     if xmlFile == 0 then
-        RmLogging.logWarning("Failed to load settings file: %s", self.settingsFile)
+        Log:warning("Failed to load settings file: %s", self.settingsFile)
         return
     end
 
@@ -255,19 +255,19 @@ function RmHideHelpTexts:loadSettings()
                 displayNameNegative = displayNameNegative or "",
                 hidden = hidden
             }
-            RmLogging.logDebug("Loaded help text: %s (hidden=%s)", identifier, tostring(hidden))
+            Log:debug("Loaded help text: %s (hidden=%s)", identifier, tostring(hidden))
         end
         i = i + 1
     end
 
     delete(xmlFile)
-    RmLogging.logInfo("Loaded %d help text(s) from settings", i)
+    Log:info("Loaded %d help text(s) from settings", i)
 end
 
 --- Called when map finishes loading
 --- This is the entry point for the mod
 local function onLoadMapFinished()
-    RmLogging.logInfo("Map loading finished, initializing RmHideHelpTexts")
+    Log:info("Map loading finished, initializing RmHideHelpTexts")
 
     -- Hook into savegame save
     FSBaseMission.saveSavegame = Utils.appendedFunction(
@@ -281,13 +281,13 @@ function RmHideHelpTexts.saveToFile()
     local self = RmHideHelpTexts
 
     if not self.settingsFile then
-        RmLogging.logWarning("Settings file path not set, skipping save")
+        Log:warning("Settings file path not set, skipping save")
         return
     end
 
     local xmlFile = createXMLFile("settings", self.settingsFile, "hideHelpTexts")
     if xmlFile == 0 then
-        RmLogging.logWarning("Failed to create settings file: %s", self.settingsFile)
+        Log:warning("Failed to create settings file: %s", self.settingsFile)
         return
     end
 
@@ -303,7 +303,7 @@ function RmHideHelpTexts.saveToFile()
 
     saveXMLFile(xmlFile)
     delete(xmlFile)
-    RmLogging.logInfo("Saved %d help text(s) to settings", i)
+    Log:info("Saved %d help text(s) to settings", i)
 end
 
 --- Sanitizes a display name by returning empty string if it equals the identifier
@@ -350,7 +350,7 @@ InputDisplayManager.makeHelpElement = Utils.overwrittenFunction(
 
         -- Check if action1 should be hidden
         if entry1.hidden then
-            RmLogging.logTrace("Hiding help text for action '%s'", action1.name)
+            Log:trace("Hiding help text for action '%s'", action1.name)
             return InputDisplayManager.NO_HELP_ELEMENT
         end
 
@@ -378,7 +378,7 @@ InputDisplayManager.makeHelpElement = Utils.overwrittenFunction(
 
             -- Check if action2 should be hidden
             if entry2.hidden then
-                RmLogging.logTrace("Hiding help text for action '%s'", action2.name)
+                Log:trace("Hiding help text for action '%s'", action2.name)
                 return InputDisplayManager.NO_HELP_ELEMENT
             end
         end
@@ -387,7 +387,7 @@ InputDisplayManager.makeHelpElement = Utils.overwrittenFunction(
         if superFunc ~= nil then
             return superFunc(self, action1, action2, ...)
         else
-            RmLogging.logTrace("superFunc nil in InputDisplayManager.makeHelpElement, returning NO_HELP_ELEMENT")
+            Log:trace("superFunc nil in InputDisplayManager.makeHelpElement, returning NO_HELP_ELEMENT")
             return InputDisplayManager.NO_HELP_ELEMENT
         end
     end

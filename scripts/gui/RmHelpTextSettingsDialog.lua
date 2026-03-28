@@ -3,6 +3,8 @@
 -- GUI dialog for managing help text visibility
 -- Author: Ritter
 
+local Log = RmLogging.getLogger("HideHelpTexts")
+
 ---@class RmHelpTextSettingsDialog : MessageDialog
 ---@field helpTextEntries table[] List of help text entries for display
 ---@field showCurrentOnly boolean Whether to filter to current context only
@@ -25,7 +27,7 @@ RmHelpTextSettingsDialog.CONTROLS = {
 ---@param custom_mt table|nil optional custom metatable
 ---@return RmHelpTextSettingsDialog the new dialog instance
 function RmHelpTextSettingsDialog.new(target, custom_mt)
-    RmLogging.logTrace("RmHelpTextSettingsDialog:new()")
+    Log:trace("RmHelpTextSettingsDialog:new()")
     ---@type RmHelpTextSettingsDialog
     ---@diagnostic disable-next-line: assign-type-mismatch
     local self = MessageDialog.new(target, custom_mt or RmHelpTextSettingsDialog_mt)
@@ -35,19 +37,19 @@ function RmHelpTextSettingsDialog.new(target, custom_mt)
 end
 
 function RmHelpTextSettingsDialog:onGuiSetupFinished()
-    RmLogging.logTrace("RmHelpTextSettingsDialog:onGuiSetupFinished()")
+    Log:trace("RmHelpTextSettingsDialog:onGuiSetupFinished()")
     RmHelpTextSettingsDialog:superClass().onGuiSetupFinished(self)
     self.helpTextList:setDataSource(self)
     self.helpTextList:setDelegate(self)
 end
 
 function RmHelpTextSettingsDialog:onCreate()
-    RmLogging.logTrace("RmHelpTextSettingsDialog:onCreate()")
+    Log:trace("RmHelpTextSettingsDialog:onCreate()")
     RmHelpTextSettingsDialog:superClass().onCreate(self)
 end
 
 function RmHelpTextSettingsDialog:onOpen()
-    RmLogging.logTrace("RmHelpTextSettingsDialog:onOpen()")
+    Log:trace("RmHelpTextSettingsDialog:onOpen()")
     RmHelpTextSettingsDialog:superClass().onOpen(self)
 
     -- Reset to default view mode (current context)
@@ -72,7 +74,7 @@ function RmHelpTextSettingsDialog:onOpen()
 end
 
 function RmHelpTextSettingsDialog:onClose()
-    RmLogging.logTrace("RmHelpTextSettingsDialog:onClose()")
+    Log:trace("RmHelpTextSettingsDialog:onClose()")
 
     -- Save settings when dialog closes
     RmHideHelpTexts.saveToFile()
@@ -155,7 +157,7 @@ function RmHelpTextSettingsDialog:toggleViewMode()
     self.showCurrentOnly = not self.showCurrentOnly
 
     local mode = self.showCurrentOnly and "Current" or "All"
-    RmLogging.logDebug("View mode toggled to: %s", mode)
+    Log:debug("View mode toggled to: %s", mode)
 
     self:updateViewModeButton()
     self:refreshHelpTextList()
@@ -234,7 +236,7 @@ function RmHelpTextSettingsDialog:toggleHelpText(identifier)
     if data then
         data.hidden = not data.hidden
         local status = data.hidden and "HIDDEN" or "VISIBLE"
-        RmLogging.logDebug("Help text '%s' toggled to %s", identifier, status)
+        Log:debug("Help text '%s' toggled to %s", identifier, status)
 
         -- Preserve selection position
         local selectedIndex = self.helpTextList.selectedIndex
@@ -273,7 +275,7 @@ function RmHelpTextSettingsDialog:onClickToggle()
 end
 
 function RmHelpTextSettingsDialog:onClickClose()
-    RmLogging.logTrace("RmHelpTextSettingsDialog:onClickClose()")
+    Log:trace("RmHelpTextSettingsDialog:onClickClose()")
     self:close()
 end
 
@@ -324,7 +326,7 @@ end
 
 --- Registers the dialog with the GUI system
 function RmHelpTextSettingsDialog.register()
-    RmLogging.logTrace("RmHelpTextSettingsDialog.register()")
+    Log:trace("RmHelpTextSettingsDialog.register()")
     -- Load GUI profiles first
     g_gui:loadProfiles(RmHideHelpTexts.modDirectory .. "gui/guiProfiles.xml")
     -- Then register the dialog
@@ -334,6 +336,6 @@ end
 
 --- Shows the help text settings dialog
 function RmHelpTextSettingsDialog.show()
-    RmLogging.logTrace("RmHelpTextSettingsDialog.show()")
+    Log:trace("RmHelpTextSettingsDialog.show()")
     g_gui:showDialog("RmHelpTextSettingsDialog")
 end
